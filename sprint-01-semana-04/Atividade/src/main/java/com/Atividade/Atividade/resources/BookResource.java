@@ -43,6 +43,13 @@ public class BookResource {
 
     }
 
+    @RequestMapping(value = "/buscadate", method = RequestMethod.GET)
+    public ResponseEntity<Book> findByPubli(@RequestParam int date){
+        Book obj = service.findByPublished(date);
+        return ResponseEntity.ok().body(obj);
+
+    }
+
 
     @RequestMapping(value = "/{id}", method = RequestMethod.POST)
     public ResponseEntity<Void> insert(@RequestBody BookDTO objDto){

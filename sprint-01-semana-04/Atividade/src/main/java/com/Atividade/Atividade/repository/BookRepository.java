@@ -12,5 +12,8 @@ import java.util.Optional;
 public interface BookRepository extends MongoRepository<Book, String> {
         @Query("{ 'author': { $regex: ?0, $options: 'i' }}")
         List<Book> searchBook(String text);
+
         Optional<Book> findByAuthor(String author);
+
+        Optional<Book> findByPublished(int published);
 }

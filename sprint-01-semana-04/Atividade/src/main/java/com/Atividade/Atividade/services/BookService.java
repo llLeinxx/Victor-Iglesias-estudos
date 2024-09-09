@@ -31,6 +31,11 @@ public class BookService {
      return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
     }
 
+    public Book findByPublished(int id){
+        Optional<Book> obj = repo.findByPublished(id);
+        return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
+    }
+
 
     public Book insert(Book obj){
         return repo.insert(obj);
